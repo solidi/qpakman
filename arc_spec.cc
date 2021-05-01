@@ -28,7 +28,7 @@
 #include "im_color.h"
 #include "im_image.h"
 #include "im_mip.h"
-#include "im_png.h"
+//#include "im_png.h"
 #include "q1_structs.h"
 
 
@@ -119,7 +119,8 @@ static int AnalysePOP(int entry, const char *path)
     return ARCSP_Failed;
   }
 
-  bool result = PNG_Save(fp, img);
+//  bool result = PNG_Save(fp, img);
+  bool result = false;
 
   if (! result)
     printf("FAILURE: error while writing PNG file\n\n");
@@ -320,7 +321,8 @@ static int StoreLMP(FILE *fp, const char *lump)
 {
   printf("  Converting PNG graphic to LMP...\n");
 
-  rgb_image_c *img = PNG_Load(fp);
+  //rgb_image_c *img = PNG_Load(fp);
+  rgb_image_c *img = NULL;
 
   if (! img)
   {
@@ -432,7 +434,8 @@ static int ExtractLMP(int entry, const char *path)
     return ARCSP_Failed;
   }
 
-  bool result = PNG_Save(fp, img);
+  //bool result = PNG_Save(fp, img);
+  bool result = false;
 
   if (! result)
     printf("FAILURE: error while writing PNG file\n\n");
