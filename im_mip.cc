@@ -24,7 +24,7 @@
 #include "im_color.h"
 #include "im_image.h"
 #include "im_mip.h"
-#include "im_png.h"
+//#include "im_png.h"
 #include "pakfile.h"
 #include "q1_structs.h"
 
@@ -74,7 +74,8 @@ rgb_image_c *MIP_LoadImage(const char *filename)
     return NULL;
   }
 
-  rgb_image_c * img = PNG_Load(fp);
+  //rgb_image_c * img = PNG_Load(fp);
+  rgb_image_c * img = NULL;
 
   fclose(fp);
 
@@ -527,7 +528,8 @@ static bool Do_SaveImage(rgb_image_c *img, const char *lump_name, bool fullbrigh
     return false;
   }
 
-  bool result = PNG_Save(fp, img);
+  //bool result = PNG_Save(fp, img);
+  bool result = false;
 
   if (! result)
     printf("FAILURE: error while writing PNG file\n\n");
@@ -859,7 +861,8 @@ bool MIP_DecodeWAL(int entry, const char *filename)
     return false;
   }
 
-  bool result = PNG_Save(fp, img);
+  //bool result = PNG_Save(fp, img);
+  bool result = false;
 
   fclose(fp);
 
